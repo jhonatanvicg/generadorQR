@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f05454; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    color: white;
+    position: relative;
+    width: 500px;
+    padding: 40px;
+    background-color: #30475e;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container h2{
+    margin-bottom: 45px;
+}
+
+.input-field{
+    position: relative;
+    height: 40px;
+    width: 100%;
+}
+
+.input-field input[type="text"]{
+    position: absolute;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    font-size: 16px;
+    width: 100%;
+    color: #fff;
+}
+
+.input-field label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: rgb(194, 186, 186);
+    pointer-events: none;
+    display: block;
+    transition: 0.5s;
+}
+
+.input-field input[type="text"]:focus + label,
+.input-field input[type="text"]:valid + label{
+    transform: translateY(-35px);
+    font-size: 14px;
+    color: #fff;
+    background: #ff006a;
+    padding: 2px 6px;
+}
+
+.input-field span{
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    display: block;
+    background: #00b0ff;
+    width: 100%;
+    height: 2px;
+}
+
+.input-field span:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff006a;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease-in-out ;
+}
+
+
+.input-field input[type="text"]:focus ~ span:before,
+.input-field input[type="text"]:valid ~ span:before{
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out ;
+
+}
+
+
+.btn{
+    margin-top: 20px;
+    border: none;
+    box-shadow: none;
+    padding: 10px;
+    background: #1079aa;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btn:hover{
+    transition: .5s;
+    background: #0d638b;
+}
+
+
+.qrContainer{
+    border-radius: 40px;
+    z-index: 2;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-close{
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 40px;
+    background: #ff006a94;
+    border: none;
+    padding: 7px 35px;
+    margin-top: 15px;
+}
+
+.btn-close:hover{
+    transition: .5s;
+    background: #ff006a;
+}
+
+.hiddenPosition{
+    top:-1000px
+}
+
+
+.close{
+    animation: scrollTop .5s linear;
+}
+
+.open{
+    animation: scrollDown .5s linear ;
+}
+
+
+@keyframes scrollDown{
+      0%{ top: -200px; }
+      25%{ top: -100px; }
+      50%{ top: 0px; }
+      75%{ top: 25px; }
+      100%{ top: 100px; }
+    
+}
+
+
+@keyframes scrollTop{
+
+    0%{opacity: 1; }
+    50%{ opacity: .5; }
+    100%{opacity: 0; }
+  
+}
+
+
+@media (max-width:477px){
+    body{
+        background-color: #fff;
+    }
+    .container{
+        width: 90%;
+    }
+}
